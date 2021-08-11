@@ -4,7 +4,7 @@ Translate French text to English text offline from the command line, using the N
 
 | testset       | BLEU | chr-F |
 | ------------- | ---- | ----- |
-| Tatoeba.ja.en | 57.5 | 0.720 |
+| Tatoeba.fr.en | 57.5 | 0.720 |
 
 ## Prerequisites
 
