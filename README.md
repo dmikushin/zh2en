@@ -6,8 +6,6 @@ Translate French text to English text offline from the command line, using the N
 | ------------- | ---- | ----- |
 | Tatoeba.ja.en | 57.5 | 0.720 |
 
-The quality of translation is acceptable in practice: a translation of a technical book in Japanese is easy to follow.
-
 ## Prerequisites
 
 Clone the repository recursively with the Git LFS enabled:
