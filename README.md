@@ -1,4 +1,4 @@
-# Japanese to English NLP-based translation service
+# French to English NLP-based translation service
 
 Translate French text to English text offline from the command line, using the NLP model published by [Helsinki-NLP](https://huggingface.co/Helsinki-NLP/opus-mt-fr-en).
 
