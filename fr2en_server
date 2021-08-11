@@ -1,0 +1,29 @@
+#!/usr/bin/env python
+from aiohttp import web
+import socketio
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+
+# Suppress "UserWarning: floor_divide is deprecated"
+import warnings
+warnings.filterwarnings("ignore")
+
+tokenizer = AutoTokenizer.from_pretrained("./ThirdParty/opus-mt-fr-en")
+
+model = AutoModelForSeq2SeqLM.from_pretrained("./ThirdParty/opus-mt-fr-en")
+
+sio = socketio.AsyncServer(transports=['polling'])
+app = web.Application()
+sio.attach(app)
+
+@sio.event
+async def connect(sid, environ, auth):
+    text = auth['text']
+    translated = model.generate(**tokenizer(text, return_tensors="pt", padding=True))
+    translation = ''
+    for t in translated :
+        translation = translation + tokenizer.decode(t, skip_special_tokens=True)
+    await sio.emit('translation', translation, to=sid)
+
+if __name__ == '__main__':
+    web.run_app(app)
+
