@@ -1,10 +1,10 @@
-# French to English NLP-based translation service
+# Chinese to English NLP-based translation service
 
-Translate French text to English text offline from the command line, using the NLP model published by [Helsinki-NLP](https://huggingface.co/Helsinki-NLP/opus-mt-fr-en).
+Translate Chinese text to English text offline from the command line, using the NLP model published by [Helsinki-NLP](https://huggingface.co/Helsinki-NLP/opus-mt-zh-en).
 
-| testset       | BLEU | chr-F |
-| ------------- | ---- | ----- |
-| Tatoeba.fr.en | 57.5 | 0.720 |
+| testset              | BLEU | chr-F |
+| -------------------- | ---- | ----- |
+| Tatoeba-test.zho.eng | 36.1 | 0.548 |
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ Clone the repository recursively with the Git LFS enabled:
 
 ```
 git lfs install
-git clone --recurse-submodules https://github.com/dmikushin/fr2en.git
+git clone --recurse-submodules https://github.com/dmikushin/zh2en.git
 ```
 
 Prepare Python virtual environment:
@@ -20,7 +20,8 @@ Prepare Python virtual environment:
 ```
 python3 -m venv ./venv
 ./venv/bin/activate
-pip3 install wheel transformers torch sentencepiece python-socketio aiohttp
+pip3 install wheel
+pip3 install transformers torch sentencepiece python-socketio aiohttp
 ```
 
 ## Usage
@@ -28,13 +29,13 @@ pip3 install wheel transformers torch sentencepiece python-socketio aiohttp
 Start the server:
 
 ```
-python ./fr2en_server
+python ./zh2en_server
 ```
 
 Execute the client:
 
 ```
-python ./fr2en "Fais de ta vie un rêve, et d'un rêve, une réalité"
-Make your life a dream, and a dream, a reality
+python ./zh2en "欲速则不达。"
+If you want to do it quickly, you won't be able to do it.
 ```
 

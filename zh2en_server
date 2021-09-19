@@ -7,9 +7,9 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import warnings
 warnings.filterwarnings("ignore")
 
-tokenizer = AutoTokenizer.from_pretrained("./ThirdParty/opus-mt-fr-en")
+tokenizer = AutoTokenizer.from_pretrained("./ThirdParty/opus-mt-zh-en")
 
-model = AutoModelForSeq2SeqLM.from_pretrained("./ThirdParty/opus-mt-fr-en")
+model = AutoModelForSeq2SeqLM.from_pretrained("./ThirdParty/opus-mt-zh-en")
 
 sio = socketio.AsyncServer(transports=['polling'])
 app = web.Application()
