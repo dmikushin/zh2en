@@ -13,12 +13,10 @@ def translation(text):
 
 if __name__ == '__main__':
     if (len(sys.argv) != 2):
-        print("Usage: {} \"quoted text in Japanese\"".format(sys.argv[0]))
+        print("Usage: {} \"quoted text in French\"".format(sys.argv[0]))
         exit(1)
     text = sys.argv[1]
     try:
         sio.connect('http://localhost:8080', auth={'text': text}, transports=['polling'])
     except socketio.exceptions.ConnectionError:
         pass
-
-# test = "こんにちは！テキスト入力は提供されていません。"
