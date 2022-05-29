@@ -1,22 +1,18 @@
 #!/usr/bin/env python
-import asyncio
-import socketio
+import http.client
 import sys
-
-sio = socketio.Client()
-
-@sio.event
-def translation(text):
-    print(text)
-    sio.disconnect()
-    exit(0)
 
 if __name__ == '__main__':
     if (len(sys.argv) != 2):
         print("Usage: {} \"quoted text in Chinese\"".format(sys.argv[0]))
         exit(1)
     text = sys.argv[1]
-    try:
-        sio.connect('http://localhost:8080', auth={'text': text}, transports=['polling'])
-    except socketio.exceptions.ConnectionError:
-        pass
+
+    conn = http.client.HTTPConnection("localhost", 8080)
+    headers = {'Content-type': 'text'}
+
+    conn.request('POST', '/', text.encode('utf-8'), headers)
+
+    response = conn.getresponse()
+    print(response.read().decode())
+
