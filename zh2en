@@ -9,7 +9,7 @@ if __name__ == '__main__':
     text = sys.argv[1]
 
     conn = http.client.HTTPConnection("localhost", 8080)
-    headers = {'Content-type': 'text'}
+    headers = {'Content-type': 'text/plain'}
 
     conn.request('POST', '/', text.encode('utf-8'), headers)
 
