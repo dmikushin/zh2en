@@ -5,7 +5,6 @@ function translateSelection()
 	{
 		let range = sel.getRangeAt(0);
 		text = range.toString();
-		window.alert(text);
 
 		const req = new XMLHttpRequest();
 		const baseUrl = "http://localhost:8080";
@@ -17,7 +16,6 @@ function translateSelection()
 			if (this.readyState === XMLHttpRequest.DONE && this.status === 200)
 			{
 				translation = this.responseText;
-				window.alert(translation);
 				range.deleteContents();
 				range.insertNode(document.createTextNode(translation));
 			}
