@@ -1,0 +1,20 @@
+{
+  "name": "zh2en",
+  "action": {},
+  "manifest_version": 3,
+  "version": "0.1",
+  "description": "Translates selected text from Chinese to English",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "zh2en.js"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": "Ctrl+Shift+0",
+      "description": "Replace the selected text with its English translation"
+    }
+  }
+}
